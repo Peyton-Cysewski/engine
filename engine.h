@@ -2,10 +2,15 @@
 
 class Engine
 {
+public:
+// Constructor and Destructor
+	Engine();
+	~Engine();
 // member variables
-public:
 private:
+public:
 // member functions
-public:
 private:
+public:
+	void run();
 };
