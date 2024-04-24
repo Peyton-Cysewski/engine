@@ -1,14 +1,8 @@
 #include "engine.h"
 
-int example()
-{
-	Engine e;
-	e.run();
-	return 0;
-}
-
 int main()
 {
-	example();
+	Engine e = Engine();
+	e.run();
 	return 0;
 }
