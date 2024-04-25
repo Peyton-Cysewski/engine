@@ -6,11 +6,16 @@ public:
 // Constructor and Destructor
 	Engine();
 	~Engine();
+
 // member variables
 private:
 public:
+
 // member functions
 private:
 public:
-	void run();
+	int create();
+	int update();
+	int destroy();
+	int run();
 };

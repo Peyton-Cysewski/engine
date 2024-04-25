@@ -1,7 +1,5 @@
 #pragma once
 
-// Main controller of the high level engine that interfaces with the Win32 api and GPU api
-
 #ifndef UNICODE
 #define UNICODE
 #endif 
