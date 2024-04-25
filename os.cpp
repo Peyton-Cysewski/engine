@@ -1,4 +1,6 @@
 #include <thread>
+#include <string>
+#include <iostream>
 
 #include "os.h"
 
@@ -10,6 +12,11 @@ LRESULT CALLBACK OS::WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 {
     switch (uMsg)
     {
+    case WM_KEYDOWN:
+    {
+        std::cout << std::to_string(wParam) << std::endl;
+        break;
+    }
     case WM_DESTROY:
     {
         PostQuitMessage(0);
@@ -44,7 +51,7 @@ int OS::CreateOSWindow()
         CW_USEDEFAULT,                  // nWidth
         CW_USEDEFAULT,                  // nHeight
 
-        HWND_MESSAGE,                   // hWndParent      Parent window    
+        NULL,                   // hWndParent      Parent window    
         NULL,                           // hMenu           Menu
         NULL,                           // hInstance       Instance handle
         NULL                            // lpParam         Additional application data
@@ -54,8 +61,10 @@ int OS::CreateOSWindow()
     {
         return 1;
     }
+
+    ShowWindow(hwnd_, 1);
 }
-int OS::MessageLoop()
+void OS::MessageLoop()
 {
     MSG msg = { };
     while (GetMessage(&msg, NULL, 0, 0) > 0)
@@ -64,11 +73,13 @@ int OS::MessageLoop()
         DispatchMessage(&msg);
     }
 
-    return 0;
+    //return 0;
 }
 void OS::test()
 {
     OS::RegisterWindowClass();
     OS::CreateOSWindow();
+    //std::thread t (&OS::MessageLoop, this);
+    //t.join();
     OS::MessageLoop();
 }

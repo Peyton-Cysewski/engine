@@ -22,7 +22,7 @@ private:
 	static LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 	int RegisterWindowClass();
 	int CreateOSWindow();
-	int MessageLoop();
+	void MessageLoop();
 public:
 	void test();
 // Windows Implementation Stop //
